@@ -27,6 +27,7 @@ app.get('/contact',(req, res) => {
     res.render('contact');
  });
 
+ /*
  app.post('https://sheets.googleapis.com/v4/spreadsheets/1ovHnMffenM-DvRdyvCtKbPaMLU9Luxa4KktgRTevVEA/values/'contacts'?valueInputOption=RAW', (req, res, next) => {
     var firstN = document.getElementById('firstName');
     var lastN = document.getElementById('lastName');
@@ -43,6 +44,8 @@ app.get('/contact',(req, res) => {
       }
 
  });
+ 
+ */
 
 app.post('/thanks', (req, res) => { 
     res.render('thanks',{ contact: req.body });
