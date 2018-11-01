@@ -44,13 +44,14 @@ app.get('/contact',(req, res) => {
       }
 
  });
- 
+
  */
 
 app.post('/thanks', (req, res) => { 
     res.render('thanks',{ contact: req.body });
  });
 
-app.listen(8080, () => {
-    console.log('listening at http://localhost:8080');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
