@@ -4,6 +4,8 @@
   </head>
   <body>
     <div>
+
+    <!--
       <form action="/thanks" method="POST">
         <label for="firstName">First Name:</label>
         <input id="firstName" name="firstName" type="text">
@@ -16,6 +18,46 @@
 
         <input type="submit" />
       </form>
+    -->
+
+
+  <div class="form-container" id="booknow">
+
+        <div class="form-class">Contact ME !
+          <span style="font-size:3.2vw;">&#9786;</span>
+          <div style="margin-top:15px">
+    
+            <form autocomplete=off action="javascript:;" id="resetForm" onsubmit="insert_value()">
+    
+              <input type="text" class="book-now" id="name" placeholder="Enter your name" required>
+              <br />
+    
+              <input type="email" class="book-now" id="email" placeholder="Enter your email" required>
+              <br />
+    
+              <input type="number" id="id" onKeyPress="if(this.value.length==10) return false;" class="book-now" placeholder="Enter your 10 digit mobile number"
+                required>
+              <br />
+    
+              <select id="city" class="select-custom" id="city" name="city">
+    
+                <option class="options-custom" value="delhi">Delhi</option>
+                <option class="options-custom" value="dehradun">Dehradun</option>
+                <option class="options-custom" value="mumbai">Mumbai</option>
+    
+              </select>
+              <br />
+              
+              <input type="submit" value="Register Now">
+    
+              <br />
+            </form>
+    
+          </div>
+        </div>
+      </div>
+    
+
     </div>
   </body>
 </html>
