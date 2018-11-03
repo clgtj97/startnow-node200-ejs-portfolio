@@ -46,31 +46,27 @@ app.get('/contact',(req, res) => {
  });
 
  */
-
-
-var script_url = "https://script.google.com/macros/s/AKfycbxHGkgrw3H0ZHUNU3Kiaaq145aHeuotPOV8Zf5WoZk0LzY4ub8/exec";
-
-
-function insert_value() {                            
-    var id1 = $("#id").val();
-    var name = $("#name").val();
-    var email = $("#email").val();
-    var city = $("#city option:selected").val();
-    var url = script_url + "?callback=ctrlq&name=" + name + "&id=" + id1 + "&email=" + email + "&city=" + city + "&action=insert";
-    var request = jQuery.ajax({
-        crossDomain: true,
-        url: url,
-        method: "GET",
-        dataType: "jsonp"
-    });
-    $("#resetForm").reset();
-}
-function ctrlq(e) {
-    alert('Congrats! Registered Successfully');
-}
+app.helpers({
+    renderScriptsTags: function (all) {
+      if (all != undefined) {
+        return all.map(function(script) {
+          return '<script src="/javascripts/' + script + '"></script>';
+        }).join('\n ');
+      }
+      else {
+        return '';
+      }
+    }
+  });
+  
+  app.dynamicHelpers({
+    scripts: function(req, res) {
+      return ['jquery-3.3.1.min.js'];
+    }
+  });
 
 app.post('/thanks', (req, res) => { 
-    res.render('thanks',{ contact: req.body });
+    res.render('thanks',{ insert_value: req.body });
  });
 
 const PORT = process.env.PORT || 3000;
