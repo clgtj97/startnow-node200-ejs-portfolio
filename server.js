@@ -46,18 +46,23 @@ app.get('/contact',(req, res) => {
  });
 
  */
-app.helpers({
-    renderScriptsTags: function (all) {
-      if (all != undefined) {
-        return all.map(function(script) {
-          return '<script src="/javascripts/' + script + '"></script>';
-        }).join('\n ');
-      }
-      else {
-        return '';
-      }
+app.locals({
+    scripts: [],
+  renderScriptsTags: function (all) {
+    app.locals.scripts = [];
+    if (all != undefined) {
+      return all.map(function(script) {
+        return '<script src="/javascripts/' + script + '"></script>';
+      }).join('\n ');
     }
-  });
+    else {
+      return '';
+    }
+  },
+  getScripts: function(req, res) {
+    return scripts;
+  }
+});
   
   app.dynamicHelpers({
     scripts: function(req, res) {
