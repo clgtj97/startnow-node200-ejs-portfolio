@@ -63,12 +63,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
 });
-
-
-
-   
-/*
-curl --request GET \
---url 'https://us19.api.mailchimp.com/3.0/' \
---user 'anystring:87435ad80f65e55b2932a9b9f567e082-us19'
-*/
